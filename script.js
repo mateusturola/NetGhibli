@@ -7,11 +7,10 @@ const getImage = (imageSource) => {
 
 const getTitle = (title) => {
   const h3 = document.createElement('h3')
-  h3.classList.add('movieTitle')
+  h3.classList.add('card-title')
   h3.innerText = title;
   return h3;
 }
-
 
 const getRelease = (releaseDate) => {
   const p = document.createElement('p')
@@ -23,6 +22,7 @@ const getRelease = (releaseDate) => {
 const getProdutorDirector = (name) => {
   const p = document.createElement('p')
   p.classList.add('infos')
+  p.classList.add('space')
   p.innerHTML = `<i class="fas fa-user-secret"></i> ${name}`;
   return p;
 }
@@ -30,7 +30,7 @@ const getProdutorDirector = (name) => {
 
 const getdesc = (description) => {
   const p = document.createElement('p')
-  p.classList.add('movieTitle')
+  p.classList.add('card-content')
   p.innerText = description;
   return p;
 }
@@ -44,13 +44,22 @@ const infosCreate = (releaseDate, producer, director) => {
   return div
 }
 
+const conteudo = (title, description, releaseDate, producer, director) => {
+  const divcont = document.createElement('div');
+  divcont.classList.add('conteudo');
+  divcont.appendChild(getTitle(title));
+  divcont.appendChild(getdesc(description));
+  divcont.appendChild(infosCreate(releaseDate, producer, director));
+  return divcont
+}
+
 const createItemElement = ({image, title, description, releaseDate, producer, director}) => {
   const li = document.createElement('li');
   li.className = 'movie'
+  li.classList.add('glide__slide')
   li.appendChild(getImage(image));
-  li.appendChild(getTitle(title));
-  li.appendChild(getdesc(description));
-  li.appendChild(infosCreate(releaseDate, producer, director));
+  li.appendChild(conteudo(title, description, releaseDate, producer, director))
+  
   return li
 }
 
@@ -62,12 +71,12 @@ const creatList = async () => {
   filmsList.forEach(({title, image, description, release_date:releaseDate, producer, director}) => {
     ulFilms.appendChild(createItemElement({title, image, description, releaseDate,  producer, director}))
   });
-
-  console.log(ulFilms)
-
-
 }
 
+const search = () => {
+  const getSearch = document.querySelector('#search').value
+  
+}
 
 window.onload = () => {
   creatList()

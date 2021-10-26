@@ -82,7 +82,6 @@ const removeChild = () => {
 };
 
 const search = () => {
-  
   const h3Title = Array.from(document.querySelectorAll('h3'))
   const filterTitle = h3Title.filter((filme) => filme.innerText.toLowerCase().includes(getSearch.value.toLowerCase()))
   if (getSearch.value === '') {
@@ -92,6 +91,8 @@ const search = () => {
     ulFilms.innerText = ''
     filteredMovie(filterTitle)
   }
+    creatList()
+
 }
 
 const filteredMovie = (filterTitle) => {
@@ -101,5 +102,5 @@ const filteredMovie = (filterTitle) => {
 getSearch.addEventListener('keyup', search)
 
 window.onload = () => {
-  creatList()
+  
 }

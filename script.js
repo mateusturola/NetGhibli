@@ -15,22 +15,15 @@ const getTitle = (title) => {
 
 const getRelease = (releaseDate) => {
   const p = document.createElement('p')
-  p.classList.add('releaseDate')
+  p.classList.add('infos')
   p.innerHTML = `<i class="far fa-calendar-minus"></i> ${releaseDate}`;
   return p;
 }
 
-const getProdutor = (produtor) => {
+const getProdutorDirector = (name) => {
   const p = document.createElement('p')
-  p.classList.add('releaseDate')
-  p.innerHTML = `<i class="fas fa-user-secret"></i> ${produtor}`;
-  return p;
-}
-
-const getDiretor = (director) => {
-  const p = document.createElement('p')
-  p.classList.add('releaseDate')
-  p.innerHTML = `<i class="fas fa-user-secret"></i> ${director}`;
+  p.classList.add('infos')
+  p.innerHTML = `<i class="fas fa-user-secret"></i> ${name}`;
   return p;
 }
 
@@ -46,8 +39,8 @@ const infosCreate = (releaseDate, producer, director) => {
   const div = document.createElement('div');
   div.className = 'info-movie';
   div.appendChild(getRelease(releaseDate));
-  div.appendChild(getProdutor(producer));
-  div.appendChild(getRelease(director));
+  div.appendChild(getProdutorDirector(producer));
+  div.appendChild(getProdutorDirector(director));
   return div
 }
 
@@ -58,9 +51,6 @@ const createItemElement = ({image, title, description, releaseDate, producer, di
   li.appendChild(getTitle(title));
   li.appendChild(getdesc(description));
   li.appendChild(infosCreate(releaseDate, producer, director));
-
-
-
   return li
 }
 

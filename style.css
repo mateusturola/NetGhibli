@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(151, 151, 151);
 }
 
 main {
@@ -36,6 +36,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   padding: 30px;
+      width: 100%;
 
 }
 

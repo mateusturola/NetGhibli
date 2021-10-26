@@ -8,41 +8,18 @@
     <script src="https://kit.fontawesome.com/d24fc83ca8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<!-- Required Core Stylesheet -->
-<!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"> -->
-
-<!-- Optional Theme Stylesheet -->
-<!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
-
-  <title>Document</title>
+  <title>NetGhibli</title>
 </head>
 <body>
   <header>
     <h1 id="logo">NetGhibli</h1> 
     <input type="text" name="search" id="search" placeholder="Digite o nome do filme">
-    <button id="btn-search">Buscar</button>  
   </header>
   <main>
     <h2 id="title">Filmes de Hayao Miyazaki</h2>
-    <div class="glide">
-
-    <div class="glide__track" data-glide-el="track">
-      <ul id="films" class="glide__slides"></ul>
-    </div>
-    <div class="glide__arrows" data-glide-el="controls">
-      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-    </div>
-    <div class="glide__bullets" data-glide-el="controls[nav]">
-      <button class="glide__bullet" data-glide-dir="=0"></button>
-      <button class="glide__bullet" data-glide-dir="=1"></button>
-      <button class="glide__bullet" data-glide-dir="=2"></button>
-    </div>
-    </div>
-
+        <ul id="films"></ul>
   </main>
 
-  <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="data/fetch-filmes.js"></script>

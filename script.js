@@ -1,3 +1,7 @@
+const ulFilms = document.querySelector('#films');
+const getSearch = document.querySelector('#search')
+
+
 const getImage = (imageSource) => {
   const listFilmsImg = document.createElement('img')
   listFilmsImg.classList.add('image-filme')
@@ -64,19 +68,37 @@ const createItemElement = ({image, title, description, releaseDate, producer, di
 }
 
 const creatList = async () => {
-  const ulFilms = document.querySelector('#films');
   const filmsList =  await fetchDataFilms();
-  console.log(filmsList)
-
   filmsList.forEach(({title, image, description, release_date:releaseDate, producer, director}) => {
     ulFilms.appendChild(createItemElement({title, image, description, releaseDate,  producer, director}))
   });
 }
 
+const removeChild = () => {
+  const elemento = document.getElementById("films");
+  while (elemento.firstChild) {
+    elemento.removeChild(elemento.firstChild);
+  }
+};
+
 const search = () => {
-  const getSearch = document.querySelector('#search').value
   
+  const h3Title = Array.from(document.querySelectorAll('h3'))
+  const filterTitle = h3Title.filter((filme) => filme.innerText.toLowerCase().includes(getSearch.value.toLowerCase()))
+  if (getSearch.value === '') {
+    ulFilms.innerText = ''
+    creatList();
+  } else {
+    ulFilms.innerText = ''
+    filteredMovie(filterTitle)
+  }
 }
+
+const filteredMovie = (filterTitle) => {
+   filterTitle.forEach(movie => ulFilms.appendChild(movie.parentElement.parentElement));
+}
+
+getSearch.addEventListener('keyup', search)
 
 window.onload = () => {
   creatList()

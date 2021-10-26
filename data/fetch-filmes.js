@@ -1,6 +1,6 @@
 const fetchDataFilms = () => {
-  fetch('https://ghibliapi.herokuapp.com/films/')
+ return fetch('https://ghibliapi.herokuapp.com/films/')
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => data)
 }
 
